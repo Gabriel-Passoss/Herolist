@@ -28,6 +28,7 @@ export default {
     
     background-color: var(--header-bg);
     scroll-snap-align: start;
+    position: fixed
   }
 
   nav {

@@ -1,10 +1,14 @@
 <script>
   export default {
     name: 'Card',
+    data() {
+      return {
+        jpg: '.jpg'
+      }
+    },
     props: {
-      heroName: String,
-      heroDescription: String,
-      hero: Object
+      hero: Object,
+      heroImg: String
     }
   }
 </script>
@@ -12,13 +16,11 @@
 <template>
   <main>
     <!-- <div class="star"/> -->
-    <img src="../assets/iron-man.png" alt="">
+    <img :src="hero.thumbnail.path+jpg" alt="">
     <div>
-      <h1>Iron Man</h1>
+      <h1>{{ hero.name }}</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, maxime. Esse reiciendis
-        pariatur quas, aperiam cupiditate tenetur commodi unde, delectus ipsum consequatur autem soluta
-        neque possimus sunt dignissimos assumenda minima.
+        {{ hero.description }}
       </p>
     </div>
 
