@@ -69,7 +69,7 @@
   main {
     width: 100vw;
     height: calc(100vh - 80px);
-    background-color: rgb(58, 58, 58);
+    background-color: rgb(32, 32, 32);
 
     display: flex;
     flex-direction: column;
@@ -87,22 +87,23 @@
   }
 
   div {
-    max-width: 25.125rem;
+    width: 40rem;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
   }
 
   h1 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 4rem;
+    font-size: 4.3rem;
     color: var(--title);
 
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
     text-shadow: 0 4px 0 black;
+    border-bottom: 1px solid #fff;
   }
 
   p {

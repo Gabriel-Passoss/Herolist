@@ -8,7 +8,7 @@ export default {
   <header>
     <nav>
       <div class="logo">
-        <h3>Herolist</h3>
+        <img src="../assets/marvel.png" alt="marvel logo">
       </div>
 
       <div class="input">
@@ -28,7 +28,8 @@ export default {
     
     background-color: var(--header-bg);
     scroll-snap-align: start;
-    position: fixed
+    position: fixed;
+    box-shadow: 0 1.5px black;
   }
 
   nav {
@@ -36,19 +37,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-around;
+
   }
 
-  div#logo {
-    height: 1.75rem;
-    width: 6.75rem;
-  }
-
-  h3 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    font-size: 2.2rem;
-    color: var(--logo);
-;
+  img {
+    height: 13rem;
   }
 
   input {
@@ -62,11 +55,12 @@ export default {
     font-weight: 100;
     color: #fff;
     border: 1px solid var(--placeholder);
+    box-shadow: 0 1px black;
     transition: 0.4s
   }
 
   input:focus {
-    border: 1px solid #641ff8;
+    border: 1.3px solid var(--placeholder-focus);
     outline: 0;
   }
 

@@ -3,11 +3,13 @@
   padding: 0;
   box-sizing: border-box;
   scroll-snap-type: y mandatory;
+  scrollbar-width: none;
 }
 
 :root {
-  --header-bg: #43044D;
-  --placeholder: #BA9AFF;
+  --header-bg: #F0141E;
+  --placeholder: #f7f7f7;
+  --placeholder-focus: #64ff61;
   --star: #FBFF21;
   --title: #D4D4D4;
   --description: #D2D2D2;
@@ -31,6 +33,21 @@ body, input, textarea, select, button {
 body {
   width: 100%;
   height: 100%;
+  
+}
+
+body::-webkit-scrollbar {
+  width: 13px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(77, 77, 77);        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(31, 31, 31);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid rgb(43, 43, 43);  /* creates padding around scroll thumb */
 }
 
 button {
