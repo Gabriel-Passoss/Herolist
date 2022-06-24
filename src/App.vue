@@ -17,28 +17,32 @@
       return {
         heroName: 'string',
         heroDescription: 'string',
-        hero: Array
+        hero: Array,
+        formatImg: 'string'
       }
     },
     created() {
       http.get(`/v1/public/characters?ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`)
         .then((res)  => {
-        this.hero = res.data.data.results
         console.log(res.data.data.results)
+        this.hero = res.data.data.results
       })
     }
   }
+
+
 </script>
 
 <template>
   <Header />
+  <div>
   <Card
     v-for="hero in hero"
     :hero="hero"
     :key="hero.id"
   />
+  </div>
 </template>
 
 <style>
-
 </style>

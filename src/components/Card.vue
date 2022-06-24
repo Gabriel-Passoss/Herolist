@@ -3,25 +3,21 @@
     name: 'Card',
     data() {
       return {
-        jpg: '.jpg'
       }
     },
     props: {
       hero: Object,
-      heroImg: String
+      heroImg: String,
     }
   }
 </script>
 
 <template>
   <main>
-    <!-- <div class="star"/> -->
-    <img :src="hero.thumbnail.path+jpg" alt="">
+    <img :src="hero.thumbnail.path+'.'+hero.thumbnail.extension" alt="">
     <div>
       <h1>{{ hero.name }}</h1>
-      <p>
-        {{ hero.description }}
-      </p>
+      <p>{{ hero.description }}</p>
     </div>
 
   </main>
@@ -41,6 +37,7 @@
   border-left: 1em solid transparent;
   transform: rotate(35deg);
   }
+
   .star:before {
   border-bottom: 0.8em solid var(--star-color);
   border-left: 0.3em solid transparent;
@@ -54,6 +51,7 @@
   content:"";
   transform: rotate(-35deg);
   }
+
   .star:after {
   position: absolute;
   display: block;
@@ -79,11 +77,15 @@
     scroll-snap-align: start;
   }
 
-  main
   img {
     margin-top: 5.5rem;
-    height: 30rem;
+    height: 35rem;
+    width: 35rem;
+    border-radius: 20px;
+    max-width: 35rem;
+    max-height: 35rem;
   }
+
   div {
     max-width: 25.125rem;
 
@@ -92,6 +94,7 @@
     align-items: center;
     justify-content: center;
   }
+
   h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 4rem;
@@ -99,8 +102,9 @@
 
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
-    text-shadow: 0 2px 0 black;
+    text-shadow: 0 4px 0 black;
   }
+
   p {
     font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
@@ -108,14 +112,17 @@
     text-align: center;
     text-shadow: 0 1px 0 black;
   }
+  
   @media (max-width: 1080px) {
     main {
       height: calc(100vh - 70px);
     }
+
     img {
       max-height: 370px;
     }
   }
+
   @media (min-width: 1080px) {
     main {
       flex-direction: row;
@@ -123,6 +130,7 @@
       justify-content: center;
       max-width: calc(100vw - 18px);
     }
+
     img {
       margin-right: 8rem;
     }
