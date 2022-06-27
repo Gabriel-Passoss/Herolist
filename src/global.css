@@ -21,9 +21,26 @@
     font-size: 93.75%
   }
 }
+
 @media (max-width: 720px) {
   html {
     font-size: 87.5%
+  }
+}
+
+@media (min-width: 1080px) {
+  body::-webkit-scrollbar {
+    width: 18px;               /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: rgb(77, 77, 77);        /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: rgb(31, 31, 31);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid rgb(43, 43, 43);  /* creates padding around scroll thumb */
   }
 }
 body, input, textarea, select, button {
@@ -34,20 +51,6 @@ body {
   width: 100%;
   height: 100%;
   
-}
-
-body::-webkit-scrollbar {
-  width: 13px;               /* width of the entire scrollbar */
-}
-
-body::-webkit-scrollbar-track {
-  background: rgb(77, 77, 77);        /* color of the tracking area */
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: rgb(31, 31, 31);    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid rgb(43, 43, 43);  /* creates padding around scroll thumb */
 }
 
 button {

@@ -6,7 +6,6 @@ export default {
 
 <template>
   <header>
-    <nav>
       <div class="logo">
         <img src="../assets/marvel.png" alt="marvel logo">
       </div>
@@ -14,30 +13,22 @@ export default {
       <div class="input">
         <input type="text" placeholder="Find your hero :)">
       </div>
-    </nav>
   </header>
 </template>
 
 <style scoped>
   header {
-    width: 100vw;
+    width: 99vw;
     height: 5rem;
 
     display: flex;
     align-items: center;
+    justify-content: space-around;
     
     background-color: var(--header-bg);
-    scroll-snap-align: start;
-    position: fixed;
+    scroll-snap-align: center;
     box-shadow: 0 1.5px black;
-  }
-
-  nav {
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
+    z-index: 2;
   }
 
   img {
