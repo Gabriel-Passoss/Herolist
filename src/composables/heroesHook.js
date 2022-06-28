@@ -1,4 +1,4 @@
-import { computed, reactive, ref } from 'vue'
+import { ref, computed } from 'vue'
 import { http } from '../services/axios.js'
 
 const timeStamp = '1655940616667';
@@ -6,8 +6,16 @@ const publicKey = '2c70e036a6175dd5b71c49194f1b773c';
 const hash = 'a3eb6ac42f1c7d1fbe62e1a4f94c8b2c';
 
 const heroes = ref([])
-
+const filterFavorite = ref(false)
 const favoriteHeroes = ref([])
+const searchHeroes = ref("")
+
+const showHeroes = computed(() => filterFavorite.value ? favoriteHeroes.value : heroes.value)
+
+const filteredHero = computed(() => {
+  if (!searchHeroes.value) return showHeroes.value
+  return showHeroes.value.filter((hero) => hero.name.toLowerCase().trim().search(searchHeroes.value.toLowerCase().trim()) > -1)
+})
 
 function fetchHeroes() {
   http.get(`/v1/public/characters?ts=${timeStamp}&apikey=${publicKey}&hash=${hash}`)
@@ -27,11 +35,19 @@ function toggleHeroSelected(idHero) {
   }
 }
 
+function toggleFilterFavorite() {
+  filterFavorite.value = !filterFavorite.value
+}
+
 export const useHeroes = () => {
   return {
     heroes,
     fetchHeroes,
     toggleHeroSelected,
     favoriteHeroes,
+    filterFavorite,
+    toggleFilterFavorite,
+    searchHeroes,
+    filteredHero,
   }
 }

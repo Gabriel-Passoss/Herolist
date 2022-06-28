@@ -1,6 +1,8 @@
 <script setup>
 import { ref, defineProps, computed } from 'vue'
 import { useHeroes } from '../composables/heroesHook'
+import { HeartIcon } from '@heroicons/vue/solid'
+import { HeartIcon as HeartOutline } from '@heroicons/vue/outline'
 
 const { toggleHeroSelected, favoriteHeroes } = useHeroes()
 
@@ -20,7 +22,10 @@ const isFavorited = computed(() => {
     <div>
       <h1>{{ props.hero.name }}</h1>
       <p>{{ props.hero.description }}</p>
-      <a @click="toggleHeroSelected(props.hero.id)">
+      <a @click="toggleHeroSelected(props.hero.id)" :class="{favorited: isFavorited}">
+        <HeartIcon v-if="isFavorited" class="icon"/>
+        <HeartOutline v-else class="icon"/>
+
       </a>
     </div>
   </main>
@@ -54,6 +59,7 @@ div {
   flex-direction: column;
   align-items: center;
   justify-items: center;
+  position: relative;
 }
 
 h1 {
@@ -77,6 +83,22 @@ p {
   text-align: center;
 
   text-shadow: 0 1px 0 black;
+}
+
+a {
+  position: absolute;
+  top: -170px;
+  right: 30px;
+
+}
+
+a.favorited .icon {
+  transform: scale(1.28)
+}
+.icon {
+  margin: 1.5rem;
+  height: 1.7rem;
+  color: #EB1E01;
 }
 
 @media (max-width: 1080px) {

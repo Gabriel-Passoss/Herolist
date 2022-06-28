@@ -1,10 +1,10 @@
 <script setup>
-  import { onMounted } from 'vue'
+  import { onMounted, computed } from 'vue'
   import { useHeroes } from './composables/heroesHook'
-  import Header from './components/Header.vue'
+  import HeaderComponent from './components/Header.vue'
   import Card from './components/Card.vue'
 
-  const { heroes, fetchHeroes } = useHeroes()
+  const { fetchHeroes, filteredHero } = useHeroes() 
 
   onMounted(() => {
     fetchHeroes()
@@ -12,9 +12,9 @@
 </script>
 
 <template>
-  <Header />
+  <HeaderComponent />
   <div
-    v-for="hero in heroes"
+    v-for="hero in filteredHero"
     :key="hero.id"
   >
   <Card
@@ -26,4 +26,5 @@
 </template>
 
 <style>
+
 </style>

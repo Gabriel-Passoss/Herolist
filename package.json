@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/vue": "^1.0.6",
     "axios": "^0.27.2",
     "vue": "^3.2.25",
     "vue-unicons": "^3.3.1"

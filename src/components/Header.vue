@@ -1,7 +1,8 @@
-<script>
-export default {
-  name: 'Header'
-}
+<script setup>
+import { useHeroes } from '../composables/heroesHook'
+
+const {filterFavorite, toggleFilterFavorite, searchHeroes } = useHeroes()
+
 </script>
 
 <template>
@@ -11,7 +12,10 @@ export default {
       </div>
 
       <div class="input">
-        <input type="text" placeholder="Find your hero :)">
+        <input type="text" v-model="searchHeroes" placeholder="Find your hero :)">
+        <button @click="toggleFilterFavorite">
+          Favoritos
+        </button>
       </div>
   </header>
 </template>
@@ -28,7 +32,8 @@ export default {
     background-color: var(--header-bg);
     scroll-snap-align: center;
     box-shadow: 0 1.5px black;
-    z-index: 2;
+    position: fixed;
+    z-index: 1;
   }
 
   img {
@@ -44,7 +49,7 @@ export default {
     background-color: var(--placeholder);
     font-family: 'Inter', sans-serif;
     font-weight: 100;
-    color: #fff;
+    color: rgb(43, 43, 43);
     border: 1px solid var(--placeholder);
     box-shadow: 0 1px black;
     transition: 0.4s
