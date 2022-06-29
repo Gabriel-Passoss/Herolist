@@ -92,7 +92,7 @@ p {
 
 #favoriteButton {
   position: absolute;
-  top: -170px;
+  top: -150px;
   right: 30px;
 
 }
