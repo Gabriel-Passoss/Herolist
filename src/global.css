@@ -14,6 +14,9 @@
   --title: #D4D4D4;
   --description: #D2D2D2;
   --logo: #61FF5E;
+  --color-heart: #EA442B;
+  --easing: cubic-bezier(.7,0,.3,1);
+  --duration: .5s;
 }
 
 @media (max-width: 1080px) {

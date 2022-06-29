@@ -23,11 +23,11 @@ const isFavorited = computed(() => {
       <h1>{{ props.hero.name }}</h1>
       <p>{{ props.hero.description }}</p>
       <button class="details">
-        <a :href="props.hero.urls[0].url" class="details">More details</a>
+        <a :href="props.hero.urls[0].url" target="_blank" class="details">More details</a>
       </button>
       <a @click="toggleFavoriteHero(props.hero.id)" :class="{favorited: isFavorited}" id="favoriteButton">
-        <HeartIcon v-if="isFavorited" class="icon"/>
-        <HeartOutline v-else class="icon"/>
+        <HeartIcon v-if="isFavorited" class="favorite-icon"/>
+        <HeartOutline v-else class="favorite-icon"/>
 
       </a>
     </div>
@@ -100,19 +100,34 @@ p {
 a.favorited .icon {
   transform: scale(1.28)
 }
-.icon {
+.favorite-icon {
   margin: 1.5rem;
   height: 1.7rem;
   color: #EB1E01;
 }
 
 button.details {
-  width: 6.5rem;
-  background-color: #F0141E;
+  width: 9rem;
+  max-height: 3rem;
+  border-radius: 15px;
+
+  background-color: #f1333d;
+  box-shadow: 0 1px 0 black;
+  border: none;
+
+  padding: 2px 1rem;
+  margin-top: 1.5rem;
+
+  transition: 0.4s
+}
+
+button.details:hover {
+  background-color: #F0141E
 }
 
 a.details {
   font-family: 'Inter', sans-serif;
+  font-size: 1.07rem;
 }
 
 @media (max-width: 1080px) {

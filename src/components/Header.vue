@@ -1,7 +1,10 @@
 <script setup>
+import { computed } from 'vue'
 import { useHeroes } from '../composables/heroesHook'
+import { HeartIcon } from '@heroicons/vue/solid'
+import { HeartIcon as HeartOutline } from '@heroicons/vue/outline'
 
-const {filterFavorite, toggleFilterFavorite, searchInput } = useHeroes()
+const { filterFavorite, toggleFilterFavorite, searchInput, } = useHeroes()
 
 </script>
 
@@ -13,9 +16,10 @@ const {filterFavorite, toggleFilterFavorite, searchInput } = useHeroes()
 
       <div class="input">
         <input type="text" v-model="searchInput" placeholder="Find your hero :)">
-        <button @click="toggleFilterFavorite">
-          Favoritos
-        </button>
+        <a @click="toggleFilterFavorite">
+          <HeartIcon v-if="filterFavorite" class="favorite-icon"/>
+          <HeartOutline v-else class="favorite-icon"/>
+        </a>
       </div>
   </header>
 </template>
@@ -40,6 +44,11 @@ const {filterFavorite, toggleFilterFavorite, searchInput } = useHeroes()
     height: 13rem;
   }
 
+  div {
+    display: flex;
+    align-items: center;
+  }
+
   input {
     width: 16rem;
     height: 2rem;
@@ -55,9 +64,18 @@ const {filterFavorite, toggleFilterFavorite, searchInput } = useHeroes()
     transition: 0.4s
   }
 
+  a {
+    margin-left: 1.5rem;
+    border-radius: 100px;
+  }
+
   input:focus {
     border: 1.3px solid var(--placeholder-focus);
     outline: 0;
+  }
+
+  .favorite-icon {
+    height: 1.7rem;
   }
 
   @media (min-width: 1080px) {
