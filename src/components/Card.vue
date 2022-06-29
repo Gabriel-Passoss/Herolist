@@ -103,7 +103,7 @@ a.favorited .icon {
 .favorite-icon {
   margin: 1.5rem;
   height: 1.7rem;
-  color: #EB1E01;
+  color: var(--heart-bg);
 }
 
 button.details {
@@ -111,7 +111,7 @@ button.details {
   max-height: 3rem;
   border-radius: 15px;
 
-  background-color: #f1333d;
+  background-color: var(--button-bg);
   box-shadow: 0 1px 0 black;
   border: none;
 
@@ -122,7 +122,7 @@ button.details {
 }
 
 button.details:hover {
-  background-color: #F0141E
+  background-color: var(--button-bg-hover)
 }
 
 a.details {

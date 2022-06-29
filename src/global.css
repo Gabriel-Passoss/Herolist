@@ -10,13 +10,11 @@
   --header-bg: #F0141E;
   --placeholder: #f7f7f7;
   --placeholder-focus: #64ff61;
-  --star: #FBFF21;
   --title: #D4D4D4;
   --description: #D2D2D2;
-  --logo: #61FF5E;
-  --color-heart: #EA442B;
-  --easing: cubic-bezier(.7,0,.3,1);
-  --duration: .5s;
+  --heart-bg: #EB1E01;
+  --button-bg: #f1333d;
+  --button-bg-hover: #F0141E;
 }
 
 @media (max-width: 1080px) {
