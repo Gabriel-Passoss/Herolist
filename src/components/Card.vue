@@ -4,14 +4,14 @@ import { useHeroes } from '../composables/heroesHook'
 import { HeartIcon } from '@heroicons/vue/solid'
 import { HeartIcon as HeartOutline } from '@heroicons/vue/outline'
 
-const { toggleHeroSelected, favoriteHeroes } = useHeroes()
+const { toggleFavoriteHero, listHeroesFavorites } = useHeroes()
 
 const props = defineProps({
   hero: Object,
 })
 
 const isFavorited = computed(() => {
-  return favoriteHeroes.value.some((x) => x.id == props.hero.id)
+  return listHeroesFavorites.value.some((x) => x.id == props.hero.id)
 })
 
 </script>
@@ -22,7 +22,10 @@ const isFavorited = computed(() => {
     <div>
       <h1>{{ props.hero.name }}</h1>
       <p>{{ props.hero.description }}</p>
-      <a @click="toggleHeroSelected(props.hero.id)" :class="{favorited: isFavorited}">
+      <button class="details">
+        <a :href="props.hero.urls[0].url" class="details">More details</a>
+      </button>
+      <a @click="toggleFavoriteHero(props.hero.id)" :class="{favorited: isFavorited}" id="favoriteButton">
         <HeartIcon v-if="isFavorited" class="icon"/>
         <HeartOutline v-else class="icon"/>
 
@@ -32,6 +35,8 @@ const isFavorited = computed(() => {
 </template>
 
 <style scoped>
+  
+
 main {
   width: 100vw;
   height: calc(100vh - 80px);
@@ -85,7 +90,7 @@ p {
   text-shadow: 0 1px 0 black;
 }
 
-a {
+#favoriteButton {
   position: absolute;
   top: -170px;
   right: 30px;
@@ -99,6 +104,15 @@ a.favorited .icon {
   margin: 1.5rem;
   height: 1.7rem;
   color: #EB1E01;
+}
+
+button.details {
+  width: 6.5rem;
+  background-color: #F0141E;
+}
+
+a.details {
+  font-family: 'Inter', sans-serif;
 }
 
 @media (max-width: 1080px) {

@@ -1,7 +1,7 @@
 <script setup>
 import { useHeroes } from '../composables/heroesHook'
 
-const {filterFavorite, toggleFilterFavorite, searchHeroes } = useHeroes()
+const {filterFavorite, toggleFilterFavorite, searchInput } = useHeroes()
 
 </script>
 
@@ -12,7 +12,7 @@ const {filterFavorite, toggleFilterFavorite, searchHeroes } = useHeroes()
       </div>
 
       <div class="input">
-        <input type="text" v-model="searchHeroes" placeholder="Find your hero :)">
+        <input type="text" v-model="searchInput" placeholder="Find your hero :)">
         <button @click="toggleFilterFavorite">
           Favoritos
         </button>
